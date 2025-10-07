@@ -47,22 +47,6 @@ Sistema distribuido que integra un ESP32 y una Raspberry Pi para crear un agente
 
 ### Estructura del Proyecto
 
-```
-├── esp32/                  # Código para ESP32 (MicroPython)
-│   ├── src/               # Archivos fuente principales
-│   └── lib/               # Librerías personalizadas
-├── raspberry_pi/          # Código para Raspberry Pi (Python)
-│   ├── src/               # Aplicación principal
-│   ├── mqtt/              # Cliente/Broker MQTT
-│   ├── api/               # Integración con API externa
-│   └── ml_models/         # Modelos de Machine Learning
-├── data/                  # Datasets y modelos entrenados
-│   ├── datasets/          # Conjuntos de datos (CSV)
-│   └── models/            # Modelos guardados
-├── docs/                  # Documentación del proyecto
-├── tests/                 # Pruebas unitarias
-└── README.md              # Este archivo
-```
 
 ### Tecnologías Utilizadas
 
@@ -73,24 +57,6 @@ Sistema distribuido que integra un ESP32 y una Raspberry Pi para crear un agente
 - **APIs**: HTTP/REST
 - **Control de Versiones**: Git
 
-### Instalación y Configuración
-
-#### ESP32
-1. Flashear MicroPython
-2. Subir archivos desde `esp32/src/`
-3. Configurar credenciales Wi-Fi y MQTT
-
-#### Raspberry Pi
-1. Instalar dependencias: `pip install -r requirements.txt`
-2. Configurar Mosquitto MQTT Broker
-3. Entrenar/cargar modelo de ML
-
-### Uso
-
-1. Conectar hardware (sensores/actuadores al ESP32)
-2. Iniciar broker MQTT en RPi
-3. Ejecutar aplicación principal en RPi
-4. Reiniciar ESP32 para conectar
 
 ### Autores
 
