@@ -1,1 +1,0 @@
-# Módulo MQTT para comunicación con ESP32
