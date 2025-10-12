@@ -56,8 +56,6 @@ def interpret_weathercode(code):
         return "con llovizna"
     elif code in (61, 63, 65, 80, 81, 82):
         return "lloviendo"
-    elif code in (71, 73, 75, 77, 85, 86):
-        return "nevando"
     elif code in (95, 96, 99):
         return "con tormentas"
     else:

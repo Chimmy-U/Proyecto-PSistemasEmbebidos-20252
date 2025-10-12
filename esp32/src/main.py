@@ -30,12 +30,24 @@ def main():
         while True:
             rms = mic.read_sample()
 
-            # Publicar en MQTT
             mqtt.mqtt_publish(client, str(rms))
 
             mqtt.check_messages(client)
             if mqtt.latest_message is not None:
-                mqtt.latest_message = None  # limpiar mensaje
+                response = mqtt.latest_message
+
+                if response == "0":
+                    leds.yellow()
+                elif response == "1":
+                    leds.green()
+                elif response == "2":
+                    leds.blue()
+                elif response == "3":
+                    leds.red()
+                else:
+                    leds.off()
+
+                mqtt.latest_message = None
 
             time.sleep(0.2)
 
