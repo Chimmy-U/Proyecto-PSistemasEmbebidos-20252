@@ -63,9 +63,12 @@ def main():
 
             pred = predict_sound_category(data)
 
+            print(f"Predicción: {pred}")
+
             mqtt_host.publish_to_esp32(str(pred))
 
-            time.sleep(1) 
+            time.sleep(0.2)
+
 
     except KeyboardInterrupt:
         print("\n🛑 Finalizando...")

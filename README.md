@@ -34,7 +34,7 @@ Sistema distribuido que integra un ESP32 y una Raspberry Pi para crear un agente
 - **Broker MQTT**: Gestión de comunicación con ESP32
 - **API Externa**: Consulta de información complementaria
 - **Machine Learning**: Red neuronal (ANN-MLP) para toma de decisiones
-- **Procesamiento**: Integración de datos y generación de comandos
+- **Procesamiento**: Integración de datos y generación de comandos de control
 
 ### Flujo de Información
 
@@ -46,6 +46,36 @@ Sistema distribuido que integra un ESP32 y una Raspberry Pi para crear un agente
 6. **Ejecución**: RPi → MQTT → ESP32 → Actuadores
 
 ### Estructura del Proyecto
+
+```
+proyecto/
+├── data/                          # Datos y modelos de ML
+│   ├── datasets/                  # Conjuntos de datos
+│   │   ├── data.csv              # Datos sin formatear
+│   │   ├── dataset.csv           # Dataset
+│   │   └── dataset_generator.py   # Generador de datasets
+│   └── models/                    # Modelos entrenados
+│       ├── model_trainer.py       # Script de entrenamiento
+│       ├── sound_classifier.h5    # Modelo TensorFlow
+│       ├── sound_classifier.tflite # Modelo TF Lite
+│       └── test_model.py         # Script de pruebas
+│
+├── esp32/                         # Código del ESP32
+│   └── src/                      # Código fuente
+│       ├── inmp.py               # Control del sensor
+│       ├── main.py               # Programa principal
+│       ├── mqtt.py               # Cliente MQTT
+│       ├── rgb.py                # Control de LEDs
+│       └── secrets.py            # Configuraciones
+│
+└── raspberry_pi/                  # Código de Raspberry Pi
+    └── src/                      # Código fuente
+        ├── api.py                # Interfaz API
+        ├── main.py               # Programa principal
+        ├── ml.py                 # Procesamiento ML
+        ├── mqtt_host.py          # Broker MQTT
+        └── secrets.py            # Configuraciones
+```
 
 
 ### Tecnologías Utilizadas
